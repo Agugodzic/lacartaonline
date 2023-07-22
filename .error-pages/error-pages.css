@@ -1,0 +1,38 @@
+*{
+  font-family: Montserrat,'sans-serif';
+  text-align: center;
+  color: white;
+}
+
+h1{
+  font-size: 150px;
+}
+
+#not-found-container{
+  height: 100vh;
+  width: 100vw;
+  max-width:100vw ;
+  max-height:100vh ;
+  background-color: rgba(14, 14, 184, 0.801);
+  margin:0;
+  position:absolute;
+  top:0;
+  left: 0;
+}
+
+.error-description{
+  margin:40px;
+}
+
+.error-button{
+  text-decoration: none;
+  padding:10px 15px;
+  border-radius: 8px;
+  background-color:white;
+  border-color:rgba(0, 0, 0, 0.13);
+  color:black;
+  font-size: 15px;
+  position:relative;
+  cursor:pointer;
+}
+

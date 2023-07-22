@@ -1,0 +1,158 @@
+#board-container{
+  position:relative;
+  z-index: 500;
+  color:rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.575);
+  backdrop-filter: blur(8px);
+  padding:12px 4px;
+  margin:0;
+  height: fit-content;
+}
+
+#board-menu-container{
+  display:flex;
+  flex-direction:column;
+  width:96%;
+  margin: 10px auto;
+  margin-top: 0;
+  border-radius:8px;
+  max-width:800px;
+}
+
+.board-items-category{
+  background-color:rgb(255, 255, 255);
+  color:black;
+  border-radius: 8px;
+  margin:7px auto;
+  width:100%;
+  border:0;
+  box-sizing: border-box;
+}
+
+.board-items-category *{
+  color:black;
+  font-size:16px;
+}
+
+.board-items{
+  padding:15px;
+  display:block;
+}
+
+.board-item{
+  padding:15px 0;
+  font-size:20px;
+  border-bottom-style: solid;
+  border-color:rgba(0, 0, 0, 0.468);
+  border-width: 1px;
+}
+
+.board-items-category-title{
+  display:flex;
+  justify-content:center;
+  background-color:rgb(228, 228, 228);
+  color:rgb(0, 0, 0);
+  border-radius:8px 8px 0px 0px;
+  height:45px;
+  font-size:23px;
+  align-items:center;
+  cursor:pointer;
+}
+
+.board-items .board-item:last-child{
+  border:none ;
+}
+
+.board-item-image{
+  object-fit: cover;
+  border-radius: 8px;
+  max-height: 100px;
+  max-width: 35vw;
+}
+
+.board-item-description{
+  margin: 10px 0px;
+  padding: 3px 5px;
+  border-radius: 6px;
+  background-color: rgba(146, 146, 146, 0.116);
+}
+
+.board-item-price{
+  color:rgba(0, 0, 0, 0.72);
+  font-weight: 600;
+  margin:10px;
+  border-radius: 8px;
+}
+
+.board-description-title{
+  margin:7px;
+  font-weight: 600;
+}
+
+.board-add-cart-button{
+  border-radius: 8px;
+  padding: 5px 9px;
+  background-color: rgb(240, 150, 40);
+  color:white;
+  border:none;
+  font-size: 17px;
+}
+
+
+#board-cart-button{
+  border-radius: 100px;
+  position:fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom:25px;
+  right:25px;
+  padding:15px;
+  background-color: rgb(240, 150, 40);
+  color:white;
+  z-index:50000;
+  animation: cartIn;
+  animation-duration: 0.5s;
+}
+
+.cartIn{
+  animation-name: cartIn;
+  animation-duration: 0.3s;
+}
+
+.cartOut{
+  animation-name: cartOut;
+  animation-duration: 0.3s;
+}
+
+#board-cart-button-img{
+  height: 25px;
+}
+
+@keyframes cartIn {
+  0% {
+    display:block;
+    transform: translateY(25px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 100%;
+  }
+}
+
+
+@keyframes cartOut{
+  0% {
+    transform: translateY(0px);
+    opacity: 100%;
+  }
+
+  100% {
+    display:none;
+    transform: translateY(25px);
+    opacity: 0;
+  }
+}
+
