@@ -74,7 +74,9 @@
   margin: 10px 0px;
   padding: 3px 5px;
   border-radius: 6px;
-  background-color: rgba(146, 146, 146, 0.116);
+  background-color: rgba(209, 209, 209, 0.116);
+  display: flex;
+  flex-direction: row;
 }
 
 .board-item-price{
@@ -82,6 +84,16 @@
   font-weight: 600;
   margin:10px;
   border-radius: 8px;
+
+  width: max-content;
+  justify-content: center;
+  margin:10px auto;
+}
+
+.board-item-prices{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .board-description-title{

@@ -1,7 +1,5 @@
 <?php 
-  include_once 'app/nav/nav.view.php';
   include_once 'app/board/board.control.php';
-  include_once 'app/banner/banner.view.php';
  // component('banner');
 ?>
 
@@ -17,15 +15,27 @@
 
         <?php foreach ($productsInCategory as $product): ?>
         <div class="board-item">
-
+        <div class="board-description-title"><?=$product->getName()?></div>
+          <div class="board-item-description">
           <div>
             <img class="board-item-image" src=<?=$product->getImage()?>>
           </div>
-          <div class="board-item-description">
-          <div class="board-description-title"><?=$product->getName()?></div>
             <?=$product->getDescription()?>
-            <div class="board-item-price"> $<?=$product->getPrice()?></div>
           </div>
+          <div class="board-item-prices">
+              <div class="board-item-price">
+                <h4 class="board-item-variant-price-title">Simple:</h4>
+                $<?=$product->getPrice()?>
+              </div>
+              <div class="board-item-price">
+                <h4 class="board-item-variant-price-title">Doble:</h4>
+                $<?=$product->getPrice()?>
+              </div>
+              <div class="board-item-price">
+                <h4 class="board-item-variant-price-title">Triple:</h4>
+                $<?=$product->getPrice()?>
+              </div>
+            </div>
           
           <form method="POST" action="/producto">
             <input class="hidden" type="text" name="id" value="<?=$product->getId()?>">
