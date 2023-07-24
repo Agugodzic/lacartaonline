@@ -6,7 +6,6 @@
 <div id='board-container'>
   <div id="board-menu-container">
 
-
  <?php foreach ($productsForCat as $categoryName => $productsInCategory): ?>
 
     <div id="<?=$categoryName?>" class="board-items-category">
@@ -15,34 +14,29 @@
 
         <?php foreach ($productsInCategory as $product): ?>
         <div class="board-item">
-        <div class="board-description-title"><?=$product->getName()?></div>
-          <div class="board-item-description">
+
           <div>
             <img class="board-item-image" src=<?=$product->getImage()?>>
           </div>
+          
+          <div class="board-item-description">
+          <div class="board-description-title"><?=$product->getName()?></div>
             <?=$product->getDescription()?>
           </div>
+
           <div class="board-item-prices">
-              <div class="board-item-price">
-                <h4 class="board-item-variant-price-title">Simple:</h4>
-                $<?=$product->getPrice()?>
-              </div>
-              <div class="board-item-price">
-                <h4 class="board-item-variant-price-title">Doble:</h4>
-                $<?=$product->getPrice()?>
-              </div>
-              <div class="board-item-price">
-                <h4 class="board-item-variant-price-title">Triple:</h4>
-                $<?=$product->getPrice()?>
-              </div>
-            </div>
-          
+          <?php foreach (variantsByProductId($product->getId()) as $variant): ?>
+            <div class="board-item-price"><h4><?= $variant['variant']?>:</h4> $<?= $variant['price']?> </div>
+          <?php endforeach; ?>
+          </div>
+
           <form method="POST" action="/producto">
             <input class="hidden" type="text" name="id" value="<?=$product->getId()?>">
             <input class="hidden" type="text" name="product" value="<?=$product->getName()?>">
             <input class="hidden" type="text" name="description" value="<?=$product->getDescription()?>">
             <input class="hidden" type="text" name="price" value="<?=$product->getPrice()?>">
             <input class="hidden" type="text" name="image" value="<?=$product->getImage()?>">
+
             <button class="board-add-cart-button">Agregar +</button>
           </form>
 

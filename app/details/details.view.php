@@ -15,86 +15,52 @@
         <h3 class="details-title">Variantes:</h3>
         <div class="details-item-elements">
           
+        <?php foreach(variantsByProductId($id) as $variant): ?>
+
           <div class="details-item-element">
             <div class="details-item-element-description">
-              <h4>Simple</h4>
-              <p>$2000</p>
+              <h4> <?= $variant['variant']?> </h4>
+              <p> $<?= $variant['price']?></p>
             </div>
-
             <div class="details-item-element-control">
               <input name="option" value="2000" type="checkbox" onclick="uncheckOthers(this)">
             </div>
           </div>
 
-          <div class="details-item-element">
-            <div class="details-item-element-description">
-              <h4>Doble</h4>
-              <p>$2300</p>
-            </div>
+        <?php endforeach; ?>
 
-            <div class="details-item-element-control">
-              <input name="option" value="2300" type="checkbox" onclick="uncheckOthers(this)"">
-            </div>
-          </div>
-
-          <div class="details-item-element">
-            <div class="details-item-element-description">
-              <h4>Triple</h4>
-              <p>$2600</p>
-            </div>
-
-            <div class="details-item-element-control">
-              <input name="option" value="2600" type="checkbox" onclick="uncheckOthers(this)">
-            </div>
-          </div>
         </div>
       </div>
       
       <div id="details-item" class="flex-column">
         <h3 class="details-title">Extras</h3>
         <div class="details-item-elements">
-  
-        <div class="details-item-element">
-            <div class="details-item-element-description">
-              <h4>Cheddar</h4>
-              <p>$100</p>
-            </div>
 
+        <?php foreach(extrasByProductId($id) as $extra): ?>
+
+          <div class="details-item-element">
+            <div class="details-item-element-description">
+              <h4><?=$extra['extra']?></h4>
+              <p>$<?=$extra['price']?></p>
+            </div>
             <div class="details-item-element-control">
-              <input value="100" type="checkbox" onclick="calculateTotal()">
+              <input value="<?=$extra['price']?>" type="checkbox" onclick="calculateTotal()">
             </div>
           </div>
           
-          <div class="details-item-element">
-            <div class="details-item-element-description">
-              <h4>Bacon</h4>
-              <p>$200</p>
-            </div>
+        <?php endforeach; ?>
 
-            <div class="details-item-element-control">
-              <input value="200" type="checkbox" onclick="calculateTotal()">
-            </div>
-          </div>
-          
-          <div class="details-item-element">
-            <div class="details-item-element-description">
-              <h4>Medallon</h4>
-              <p>$300</p>
-            </div>
-
-            <div class="details-item-element-control">
-              <input value="300" type="checkbox" onclick="calculateTotal()">
-            </div>
-          </div>
         </div>
       </div>
 
-      <div id="details-price">
-        <span id="details-price-title">Total:</span>
-        <span id="details-price-number">$2500</span>
-      </div> 
+      <div id="button-container">
+        <div id="details-price">
+          <span id="details-price-title">Total:</span>
+          <span id="details-price-number">$2500</span>
+        </div> 
 
-      <button class="orange-button" id="details-button">Agregar al pedido</button>
+        <button class="orange-button" id="details-button">Agregar al pedido</button>
+      </div>
     </form>
   </div>
 </div>

@@ -17,6 +17,7 @@
 }
 
 #details-content{
+  position:relative;
   display:flex;
   flex-direction:column;
   box-sizing: border-box;
@@ -28,6 +29,7 @@
   margin: 10px auto;
   border-radius:8px;
   max-width:800px;
+  padding-bottom: 110px;
 }
 
 #details-product-image{
@@ -103,13 +105,20 @@
   font-size: 18px;
   color:rgba(0, 0, 0, 0.775);
 }
+
 #details-price-number{
   font-weight: 500;
   font-size: 17px;
   color:rgba(0, 0, 0, 0.661);
 }
 
-
 #details-price{
+  height:100%;
   margin:15px;
+}
+
+#button-container{
+  width: 100%;
+  bottom:0px;
+  position:absolute;
 }

@@ -26,22 +26,6 @@ body::-webkit-scrollbar-corner{
   opacity: 0;
 }
 
-div::-webkit-scrollbar {
-  position: absolute;
-  width: 7px;
-  background-color: rgba(223, 223, 223, 0);
-  width: 8px;
-  height: 3px;
-}
-div::-webkit-scrollbar-thumb {
-  background-color: rgb(86, 86, 86);
-  border-radius: 8px;
-}
-
-div::-webkit-scrollbar-corner{
-  opacity: 0;
-}
-
 div{
   color:black;
 }

@@ -1,7 +1,7 @@
 <?php
 include 'app/test-data/test-categories.php'; // aca se solicitaran los productos a la base de datos
 include_once 'app/test-data/test-products.php';  // aca se solicitaran las categorias a la base de datos
-include_once 'app/test-data/variants.php';
+include_once 'app/test-data/test-variants.php';
 include_once 'app/nav/nav.view.php';
 include_once 'app/banner/banner.view.php';
 

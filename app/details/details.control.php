@@ -1,4 +1,5 @@
 <?php
+
 $id;
 $product;
 $description;
@@ -6,7 +7,7 @@ $image;
 $price;
 
 if(isset( $_POST['id'] )){
-  $id = $_POST['id'];
+  $id = intval($_POST['id']);
 }
 
 if(isset( $_POST['product'] )){
@@ -20,4 +21,5 @@ if(isset( $_POST['description'] )){
 if(isset( $_POST['image'] )){
   $image = $_POST['image'];
 }
+
 ?>

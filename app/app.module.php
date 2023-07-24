@@ -33,6 +33,12 @@
       ]
     ]
   ];
+
+  
+  $globalMethods = [
+    'app/.methods/db-sim.php',
+    'app/classes/variant.php'
+  ];
   
   $unrestrictedUrls = ['/board','/','/producto','/finalizar'];
 
@@ -51,6 +57,12 @@
       }
       Router::dispatch(1);
   };
+
+  function includeMethods($methods){
+    foreach($methods as $methodsFile){
+      include $methodsFile;
+    }
+  }
 
   function injectedModule($resource){
     global $globalStyles;
@@ -113,6 +125,15 @@
       };
     }
   };
+  
+  function initialize(){
+    global $unrestrictedUrls;
+    global $globalMethods;
 
-  unrestricted($unrestrictedUrls);
+    includeMethods($globalMethods);
+    unrestricted($unrestrictedUrls);
+  };
+
+
+  initialize();
 ?>

@@ -35,7 +35,7 @@
 }
 
 .board-items{
-  padding:15px;
+  padding:7px;
   display:block;
 }
 
@@ -74,26 +74,32 @@
   margin: 10px 0px;
   padding: 3px 5px;
   border-radius: 6px;
-  background-color: rgba(209, 209, 209, 0.116);
-  display: flex;
-  flex-direction: row;
+  background-color: rgba(196, 196, 196, 0.179);
 }
 
 .board-item-price{
-  color:rgba(0, 0, 0, 0.72);
+  color:rgba(0, 0, 0, 0.634);
   font-weight: 600;
-  margin:10px;
+  margin:10px 8px;
   border-radius: 8px;
-
-  width: max-content;
-  justify-content: center;
-  margin:10px auto;
+  display: inline;
+  white-space: nowrap;
+  width:max-content;
+}
+.board-item-price h4{
+  display: inline;
 }
 
 .board-item-prices{
   display: flex;
   flex-direction: row;
-  width: 100%;
+  flex-wrap:wrap;
+  margin:7px auto;
+  min-width: 80%;
+  max-width:100%;
+  width: fit-content;
+  white-space: wrap;
+  justify-content:center;
 }
 
 .board-description-title{
@@ -103,7 +109,7 @@
 
 .board-add-cart-button{
   border-radius: 8px;
-  padding: 5px 9px;
+  padding: 6px 9px;
   background-color: rgb(240, 150, 40);
   color:white;
   border:none;
