@@ -2,7 +2,8 @@ function switchDelivery(option){
   const deliverySwitchElement = document.getElementById('finish-delivery-switch');
   const takeAwaySwitchElement = document.getElementById('finish-takeAway-switch');
   const directionInput = document.getElementById('finish-direction-input');
-  const obsInput = document.getElementById('finish-obs-input');
+  const obsInput = document.getElementById('finish-obs-input'); 
+  var forDelivery = document.querySelectorAll(".not-delivery");
 
   if(option == 'takeAway'){
     deliverySwitchElement.style.backgroundColor = 'rgb(255, 255, 255)';
@@ -18,6 +19,11 @@ function switchDelivery(option){
     directionInput.style.backgroundColor = 'rgba(128, 128, 128, 0.28)';
     obsInput.style.backgroundColor = 'rgba(128, 128, 128, 0.28)';
 
+    forDelivery.forEach(function(elemento) {
+      elemento.style.visibility = "visible";
+      elemento.style.position = 'relative';
+    });
+
   }else if(option == 'delivery'){
     deliverySwitchElement.style.backgroundColor = 'rgb(240, 150, 40)';
     takeAwaySwitchElement.style.backgroundColor = 'rgb(255, 255, 255)';
@@ -30,8 +36,13 @@ function switchDelivery(option){
 
     directionInput.style.backgroundColor = 'rgb(255, 255, 255)';
     obsInput.style.backgroundColor = 'rgb(255, 255, 255)';
+
+    forDelivery.forEach(function(elemento) {
+      elemento.style.visibility = "hidden";
+      elemento.style.position = 'absolute';
+    });
   }
-}
+};
 
 function switchMethod(option){
   const cashSwitchElement = document.getElementById('finish-cash-switch');
@@ -59,4 +70,16 @@ function switchMethod(option){
     methodInput.style.display = 'block';
     checks.style.display = 'none';
   }
-}
+};
+
+function uncheckOthers(checkbox) {
+  var checkboxes = document.getElementsByName('method');
+  
+  checkboxes[0].checked = true;
+
+  for (var i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i] !== checkbox) {
+          checkboxes[i].checked = false;
+      }
+  }
+};

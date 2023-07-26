@@ -1,4 +1,6 @@
-<div id="finish-container">
+<?php include_once 'app/finish/finish.control.php'; ?>
+
+<<div id="finish-container">
   <div id="finish-content">
 
     <div id="finish-back-container">
@@ -43,27 +45,26 @@
         <input placeholder="Monto" type="text" name="text" class="finish-input">
       </div>
 
-
+       
       <div id="finish-checks-container">
-        <div class="finish-check-item">
-            <h4 class="finish-check-title">Mercadopago</h4>
-            <input class="finish-check-checkbock" type="checkbox">
-        </div>
+      <?php foreach(payMethodByClientId(1) as $method): ?>
 
-        <div class="finish-check-item">
-            <h4 class="finish-check-title">Billetera sf</h4>
-            <input class="finish-check-checkbock" type="checkbox">
-        </div>
+      <div class="finish-check-item <?= notDeliveryClass($method['forDelivery']) ?>">
+          <h4 class="finish-check-title"><?= $method['method'] ?></h4>
+          <input name="method" value="<?= $method['method'] ?>" class="finish-check-checkbock" onclick="uncheckOthers(this)" type="checkbox">
+      </div>
 
-        <div class="finish-check-item">
-            <h4 class="finish-check-title">transferencia</h4>
-            <input class="finish-check-checkbock" type="checkbox">
-        </div>
+      <?php endforeach; ?>
 
       </div>
 
-          
-      <a id="finish-send-button" class="orange-button">Enviar por Whatsapp</a>
+      <div id="finish-send-button" >
+        <div id="finish-price">
+          <span id="finish-price-title">Total:</span>
+          <span id="finish-price-number">$<?=$total?></span>
+        </div> 
+        <a class="orange-button">Enviar por Whatsapp</a>
+      </div>   
     </form>
   </div>
 </div>

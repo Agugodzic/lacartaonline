@@ -1,6 +1,7 @@
 <?php 
   include_once 'app/board/board.control.php';
- // component('banner');
+  include_once 'app/nav/nav.view.php';
+  include_once 'app/banner/banner.view.php';
 ?>
 
 <div id='board-container'>
@@ -50,8 +51,9 @@
 
   </div> <!--menu end -->
 
-  
-  <?php include_once 'app/cart/cart.view.php'?>
+  <div id="board-cart-container">
+      <?php include_once 'app/cart/cart.view.php'?>
+  </div>
 
 </div> <!--board end -->
 

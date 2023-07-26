@@ -37,7 +37,8 @@
   
   $globalMethods = [
     'app/.methods/db-sim.php',
-    'app/classes/variant.php'
+    'app/classes/variant.php',
+    '.tools/stools.module.php'
   ];
   
   $unrestrictedUrls = ['/board','/','/producto','/finalizar'];

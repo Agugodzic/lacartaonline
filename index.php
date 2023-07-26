@@ -21,4 +21,5 @@
 </div>
   <?php require_once("app/app.php")?>
 </body>
+<script src=".libs/jquery.js"></script>
 </html>

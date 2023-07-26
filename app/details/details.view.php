@@ -7,7 +7,6 @@
   </div>
 
   <div id="details-content">
-    <form action="/">
       <h2 id="details-product"><?= $product ?></h2>
       <div id="details-description"><?= $description ?></div>
 
@@ -23,7 +22,7 @@
               <p> $<?= $variant['price']?></p>
             </div>
             <div class="details-item-element-control">
-              <input name="option" value="2000" type="checkbox" onclick="uncheckOthers(this)">
+              <input data-variant="<?= $variant['variant']?>" name="option" value="<?= $variant['price']?>" type="checkbox" onclick="uncheckOthers(this)">
             </div>
           </div>
 
@@ -44,7 +43,7 @@
               <p>$<?=$extra['price']?></p>
             </div>
             <div class="details-item-element-control">
-              <input value="<?=$extra['price']?>" type="checkbox" onclick="calculateTotal()">
+              <input data-extra="<?=$extra['extra']?>" value="<?=$extra['price']?>" type="checkbox" onclick="calculateTotal()">
             </div>
           </div>
           
@@ -58,10 +57,13 @@
           <span id="details-price-title">Total:</span>
           <span id="details-price-number">$2500</span>
         </div> 
-
-        <button class="orange-button" id="details-button">Agregar al pedido</button>
+        <form method="post" action="/">
+          <input name="product" value="<?=$product?>" class="hidden">
+          <input name="final-product" value="<?=$product?>" class="hidden">
+          <input name="price" value="0" class="hidden">
+          <button class="orange-button" id="details-button">Agregar al pedido</button>
+        </form>
       </div>
-    </form>
   </div>
 </div>
 

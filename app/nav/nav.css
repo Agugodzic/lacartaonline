@@ -157,3 +157,16 @@
     transform: translateX(0);
   }
 }
+
+
+
+@media screen and ( min-width: 768px ) {
+  .nav-side-menu{
+    min-width: 300px;
+  }
+  #nav-menu{
+    right:auto;
+    left:15px;
+    z-index: 50000;
+  }
+}

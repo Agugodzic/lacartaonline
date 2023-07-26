@@ -41,4 +41,29 @@ function extrasByProductId($id) {
   };
 };
 
+function payMethodByClientId($id){
+  include 'app/test-data/test-methods.php';
+  $clientMethods = [];
+
+  foreach ($payMethods as $method){
+    if ($method -> getClientId() == $id) {
+
+      if($method -> getMethod1() != null){
+        $clientMethods[] = ['method' => $method -> getMethod1() -> method, 'forDelivery' =>  $method-> getMethod1() -> aviableInDelivery];
+      };
+      if($method -> getMethod2() != null){
+        $clientMethods[] = ['method' => $method -> getMethod2() -> method, 'forDelivery' =>  $method-> getMethod2() -> aviableInDelivery];
+      };
+      if($method -> getMethod3() != null){
+        $clientMethods[] = ['method' => $method -> getMethod3() -> method, 'forDelivery' =>  $method-> getMethod3() -> aviableInDelivery];
+      };
+      if($method -> getMethod4() != null){
+        $clientMethods[] = ['method' => $method -> getMethod4() -> method, 'forDelivery' =>  $method-> getMethod4() -> aviableInDelivery];
+      };
+
+      return $clientMethods;
+    }
+  };
+};
+
 ?>

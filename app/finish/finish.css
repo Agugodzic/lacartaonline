@@ -28,10 +28,10 @@
   display:flex;
   flex-direction:column;
   align-items:center;
-  overflow-x:scroll;
+  overflow-x:hidden;
   padding-top:15px;
-  max-width:800px;
-  padding-bottom:90px;
+  max-width:500px;
+  padding-bottom:130px;
 }
 
 #finish-back-img{
@@ -115,4 +115,26 @@
   flex-grow: 2;
   padding-left: 5px;
   font-weight: 500;
+}
+
+#finish-price-title{
+  font-weight: 600;
+  font-size: 18px;
+  color:rgba(0, 0, 0, 0.775);
+}
+
+#finish-price-number{
+  font-weight: 500;
+  font-size: 17px;
+  color:rgba(0, 0, 0, 0.661);
+}
+
+#finish-price{
+  height:100%;
+  margin:15px;
+}
+
+.not-delivery{
+  visibility:hidden;
+  position:absolute;
 }

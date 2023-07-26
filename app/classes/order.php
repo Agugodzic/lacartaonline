@@ -13,19 +13,24 @@ class Order implements Serializable {
         $this->calculateTotal();
     }
 
+    public function addProduct($product,$price){
+        $this ->productList[] = $product;
+    }
+
     public function getProductList() {
         return $this->productList;
     }
 
     public function getTotal() {
+        $this->calculateTotal();
         return $this->total;
     }
 
     // Método para calcular el total del pedido sumando los totales de los productos
-    private function calculateTotal() {
+    public function calculateTotal() {
         $this->total = 0;
         foreach ($this->productList as $productOrder) {
-            $this->total += $productOrder->getTotal();
+            $this->total += $productOrder->getPrice();
         }
     }
 
