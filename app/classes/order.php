@@ -17,6 +17,10 @@ class Order implements Serializable {
         $this ->productList[] = $product;
     }
 
+    public function deleteProduct($index){
+        unset($this ->productList[$index]);
+    }
+
     public function getProductList() {
         return $this->productList;
     }

@@ -1,4 +1,4 @@
-input[type=text]{
+input[type=text],input[type=number]{
   position:relative;
   color:rgb(8, 8, 8);
   height: 45px;
@@ -16,6 +16,10 @@ input[type=text]{
 }
 
 input[type=text]:focus{
+  border: 1px solid rgb(17, 17, 17);
+}
+
+input[type=number]:focus{
   border: 1px solid rgb(17, 17, 17);
 }
 

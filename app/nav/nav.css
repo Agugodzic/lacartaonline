@@ -1,9 +1,8 @@
 .nav-container{
-  background-color: rgba(250, 235, 215, 0.185);
   width: 100vw;
   color:rgb(5, 5, 5);
   position:fixed;
-  z-index: 10000;
+  z-index: 60000;
   top:0;
   left: 0;
   border:none;
@@ -32,10 +31,10 @@
   width: fit-content;
   margin: 9px;
   background-color: rgba(255, 255, 255, 0.834);
-  box-shadow: 3px 3px 5px rgba(33, 33, 33, 0.334);
+  box-shadow: 3px 2px 5px rgba(33, 33, 33, 0.39);
   border-radius: 8px;
   border-style: solid;
-  border-color: #1b1b1b17;
+  border-color: #1b1b1b2a;
   border-width: 0.5px;
 }
 
@@ -92,9 +91,9 @@
   left:0px;
   width: fit-content;
   padding:5px 0;
-  background-color: rgba(0, 0, 0, 0.872);
+  background-color: rgba(0, 0, 0, 0.897);
   height: 100vh;
-  z-index: 2000;
+  z-index: 60000;
   animation-name: nav-animation;
   animation-duration: 0.2s;
   display: none;
@@ -102,7 +101,6 @@
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(4px);
-  border-radius: 8px;
 }
   .nav-side-menu-dark{
     box-shadow: none;
@@ -149,6 +147,59 @@
     height:50px;
     opacity: 80%;
   }
+
+  .nav-notification-bubble{
+    filter:drop-shadow(2px 5px 3px rgba(19, 19, 19, 0.377));
+    background-color:rgb(238, 143, 1);
+    margin: 0px;
+    padding: 7px 15px;
+    font-size:17px;
+    position: absolute;
+    right:80px;
+    top:25px;
+    border-radius: 14px;
+    width: fit-content;
+    opacity:0;
+    text-align:center;
+    color:rgb(255, 255, 255);
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-notification-bubble:after {
+    content: "";
+    position: absolute;
+    transform:translateX(-3.5px);
+    top: 5px;
+    left: 100%;
+    border-top: 12.5px solid transparent;
+    border-bottom: 12.5px solid transparent;
+    border-left: 12px solid rgb(238, 143, 1);
+    z-index: -1;
+    border-radius: 5px;
+  }
+
+  .nav-notification-animation{
+    animation-name: notification;
+    animation-duration: 10s;
+  }
+  
+  @keyframes notification {
+    50% {
+      padding: none;
+      opacity: 0%;
+    }
+    58%{
+      opacity: 98%;
+    }
+    94% {
+      opacity: 98%;
+    }
+    100% {
+      opacity: 0%;
+    }
+  }
+
 @keyframes nav-animation{
   0%{
     transform: translateX(-170px);

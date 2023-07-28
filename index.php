@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Indie+Flower&family=Zeyada&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <script src=".libs\code.jquery.com_jquery-3.7.0.min.js"></script>
   <?php injectedModule('styles')?>
   <title>Personal Notes</title>
 </head>
@@ -21,5 +22,4 @@
 </div>
   <?php require_once("app/app.php")?>
 </body>
-<script src=".libs/jquery.js"></script>
 </html>

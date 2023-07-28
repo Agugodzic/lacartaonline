@@ -13,7 +13,7 @@
 #banner{
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 260px;
   overflow: hidden;
   box-shadow: 3px 4px 3px black;
 }

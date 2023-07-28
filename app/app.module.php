@@ -31,6 +31,12 @@
         'app/finish/finish.css',
         'app/forms/forms.css',
       ]
+    ],
+    ['/test',
+      'app/stest/notificacion.php',[
+        'app/finish/finish.css',
+        'app/forms/forms.css',
+      ]
     ]
   ];
 
@@ -41,7 +47,7 @@
     '.tools/stools.module.php'
   ];
   
-  $unrestrictedUrls = ['/board','/','/producto','/finalizar'];
+  $unrestrictedUrls = ['/board','/','/producto','/finalizar','/test','app/services/cart.service.php'];
 
   $initUri = '/'; // -> '/login'
 

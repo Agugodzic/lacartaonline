@@ -1,6 +1,8 @@
 <?php include 'app/nav/nav.control.php'?>
 
 <div id="nav-container" <?=theme_class("nav-container")?> >
+
+  <div class="nav-notification-bubble" id="nav-notification">Categorias aquí</div>
   <div id="nav-menu">
     <img id="nav-side-button"<?=theme_class("nav-menu-image")?> class="menu-open" src="https://cdn-icons-png.flaticon.com/512/55/55003.png">
   </div>

@@ -1,8 +1,14 @@
 <?php
+  include 'app/classes/productOrder.php';
+  include 'app/classes/order.php';
+  
   $total = 0;
+  $productList = [];
 
-  if(isset($_POST['total'])){
-    $total = $_POST['total'];
+  if(isset($_SESSION['order'])){
+    $order = unserialize($_SESSION['order']);
+    $productList = $order -> getProductList();
+    $total = $order -> getTotal();
   }
 
   function notDeliveryClass($value){

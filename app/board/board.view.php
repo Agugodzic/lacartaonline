@@ -9,7 +9,7 @@
 
  <?php foreach ($productsForCat as $categoryName => $productsInCategory): ?>
 
-    <div id="<?=$categoryName?>" class="board-items-category">
+    <div id="<?=$categoryName?>" class="board-items-category  reference-element">
       <div class="board-items-category-title"><?=$categoryName?> </div>
       <div class="board-items">
 
@@ -37,7 +37,7 @@
             <input class="hidden" type="text" name="description" value="<?=$product->getDescription()?>">
             <input class="hidden" type="text" name="price" value="<?=$product->getPrice()?>">
             <input class="hidden" type="text" name="image" value="<?=$product->getImage()?>">
-
+            <input class="hidden" type="text" name="category" value="<?=$categoryName?>">
             <button class="board-add-cart-button">Agregar +</button>
           </form>
 
@@ -58,7 +58,12 @@
 </div> <!--board end -->
 
 <a id="board-cart-button" href="/#cart-container">
-  <img id="board-cart-button-img"src=".files/utils/cart-black.png">
+  <div id="board-cart-button-info">
+    <div id="board-cart-button-number">0</div>
+    <div id="board-cart-button-price"></div>
+  </div>
+
+  <img id="board-cart-button-img" src=".files/utils/cart-black.png">
 </a>
 
 

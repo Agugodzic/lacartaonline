@@ -1,4 +1,16 @@
 var sideMenu = document.getElementById("nav-side-menu");
+notificationAnimation();
+
+//notification-animation: show two times
+function notificationAnimation(){
+  if(sessionStorage.getItem("notificationBubble") == null || sessionStorage.getItem("notificationBubble") == undefined ){
+    sessionStorage.setItem('notificationBubble', 1);
+    $('#nav-notification').addClass('nav-notification-animation');
+  }else if(sessionStorage.getItem("notificationBubble") == 1){
+      sessionStorage.setItem('notificationBubble', 2);
+      $('#nav-notification').addClass('nav-notification-animation');
+    }
+}
 
 function switchMenu(e){
   e.preventDefault();

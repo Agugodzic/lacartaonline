@@ -2,6 +2,7 @@
 
 <div id="details-container">
   <div id="details-back-arrow"><a href="/">< Volver</a></div>
+
   <div id="details-product-image">
     <img id="details-product-image" src=<?=$image?>>
   </div>
@@ -9,7 +10,6 @@
   <div id="details-content">
       <h2 id="details-product"><?= $product ?></h2>
       <div id="details-description"><?= $description ?></div>
-
       <div id="details-item" class="flex-column">
         <h3 class="details-title">Variantes:</h3>
         <div class="details-item-elements">
@@ -57,7 +57,7 @@
           <span id="details-price-title">Total:</span>
           <span id="details-price-number">$2500</span>
         </div> 
-        <form method="post" action="/">
+        <form method="post" action="/#<?=$category?>">
           <input name="product" value="<?=$product?>" class="hidden">
           <input name="final-product" value="<?=$product?>" class="hidden">
           <input name="price" value="0" class="hidden">

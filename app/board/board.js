@@ -1,28 +1,10 @@
 
 const categoryTitles = document.querySelectorAll('.board-items-category-title');
-/*
-categoryTitles.forEach(title => {
-  title.addEventListener('click', () => {
-    const content = title.nextElementSibling; // Obtenemos el contenido de la categoría
-    const itemsWithContentOpen = document.querySelectorAll('.board-items:not([style="display: none;"])');
+let topElement = "";
 
-    // Cerrar todos los elementos abiertos excepto el clickeado
-    itemsWithContentOpen.forEach(itemOpen => {
-      if (itemOpen !== content) {
-        itemOpen.style.display = 'none';
-      }
-    });
-
-    // Alternar el estado de despliegue del elemento clickeado
-    content.style.display = content.style.display === 'none' ? 'block' : 'none';
-
-    // Si el contenido se ha abierto, hacer scroll hasta el título
-    if (content.style.display === 'block') {
-      title.scrollIntoView({});
-    }
-  });
-  
-});*/
+setTimeout(function() {
+  $('html, body').css('scroll-behavior', 'smooth');
+}, 2000);
 
 
 window.addEventListener("scroll", function() {
@@ -38,4 +20,37 @@ window.addEventListener("scroll", function() {
   }else{
     buttonCart.style.display = "flex";
   }
+});
+
+$(document).ready(function() {
+  $.ajax({
+      url: "app/services/cart.service.php",
+      type: "GET",
+      dataType: "json",
+      success: function(response) {
+          $("#board-cart-button-number").text(response.quantity.toString());
+          $("#board-cart-button-price").text('$' + response.total.toString());
+          if(response.total  > 0) {
+            $('#board-cart-button-info').css('display', 'flex');
+            $('#cart-message').hide();
+          }},
+      error: function(xhr, status, error) {
+          console.log("Error en la solicitud AJAX:", status, error);
+      }
+  });
+});
+
+$(document).ready(function() {
+  // Restaurar la posición del scroll si existe en localStorage
+  var scrollPosition = sessionStorage.getItem("scrollPosition");
+  if (scrollPosition !== null && scrollPosition !== undefined) {
+      $(window).scrollTop(scrollPosition);
+  }
+
+  // Guardar la posición del scroll cuando se produce un desplazamiento en la página
+  $(window).on("scroll", function() {
+      var currentPosition = $(window).scrollTop();
+      sessionStorage.setItem("scrollPosition", currentPosition);
+  });
+
 });

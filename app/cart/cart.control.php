@@ -12,6 +12,8 @@ if(!isset($_POST['final-product']) && isset($_SESSION['order'])){
   $order = unserialize($orderString);
   $orderList = $order->getProductList();
   $total = $order -> getTotal();
+
+  $_POST = array();
 }
 
 if(isset($_POST['final-product']) && isset($_POST['price'])){
