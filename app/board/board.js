@@ -38,7 +38,7 @@ $(document).ready(function() {
           console.log("Error en la solicitud AJAX:", status, error);
       }
   });
-});
+}); 
 
 $(document).ready(function() {
   // Restaurar la posición del scroll si existe en localStorage

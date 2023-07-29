@@ -14,7 +14,7 @@
       <div class="finish-form-item">
         <div class="switch">
           <button type="button" id="finish-delivery-switch" class="switch1" onclick="switchDelivery('delivery')">Delivery</button>
-          <button type="button"  id="finish-takeAway-switch" class="switch2" onclick="switchDelivery('takeAway')">Lo busco</button>
+          <button type="button" id="finish-takeAway-switch" class="switch2" onclick="switchDelivery('takeAway')">Lo busco</button>
         </div>
       </div>
   
@@ -29,11 +29,12 @@
       </div>
 
       <div class="finish-form-item">
-        <p class="finish-input-title">Observaciones:</p>
+        <p class="finish-input-title">*Observaciones:</p>
         <input id="finish-obs-input" placeholder="Timbre no anda, etc" type="text" name="observations" class="finish-input">
       </div>
 
       <div class="finish-form-item">
+      <p class="finish-input-title">Medio de pago:</p>
         <div class="switch">
           <button type="button" id="finish-cash-switch" onclick="switchMethod('cash')" class="switch1">Efectivo</button>
           <button type="button" id="finish-other-switch" onclick="switchMethod('other')" class="switch2">Otro</button>
@@ -41,11 +42,10 @@
       </div>
 
       <div id="finish-method-input" class="finish-form-item">
-        <p class="finish-input-title">Pago con $:</p>
+        <p class="finish-input-title">*Pago con $:</p>
         <input placeholder="Monto" type="number" name="payWith" class="finish-input">
       </div>
 
-       
       <div id="finish-checks-container">
       <?php foreach(payMethodByClientId(1) as $method): ?>
 

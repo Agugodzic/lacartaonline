@@ -34,6 +34,8 @@ class FinalOrder{
 
 let sendOption = 'delivery';
 let payOption = 'cash';
+let checkboxes = document.getElementsByName('method');
+checkboxes[0].checked = true;
 
 function switchDelivery(option){
   const deliverySwitchElement = document.getElementById('finish-delivery-switch');
@@ -118,9 +120,7 @@ function switchMethod(option){
 };
 
 function uncheckOthers(checkbox) {
-  var checkboxes = document.getElementsByName('method');
-  
-  checkboxes[0].checked = true;
+  checkbox.checked = true;
 
   for (var i = 0; i < checkboxes.length; i++) {
       if (checkboxes[i] !== checkbox) {
@@ -137,42 +137,63 @@ function messageGenerator(finalOrder) {
   let observationsText = '';
 
   productList.forEach((product)=>{
-    productText = productText + "✔ " + product.product + " ($"+ product.price +")\n";
+    productText = productText + "☞ " + product.product + " ($"+ product.price +")\n";
   });
 
-  if(finalOrder.payWay === "cash"){
-    payWayText = 'Efectivo'+ "\n▹Pago con: $" + finalOrder.payWith + '\n\n';
+  if(finalOrder.payWay === "cash" && finalOrder.payWith > 0){
+    payWayText = 'Efectivo.\n▹Pago con: $' + finalOrder.payWith + '\n\n';
+  }else if(finalOrder.payWay === "cash"){
+    payWayText = 'Efectivo.\n';
   }else{
-    payWayText = finalOrder.payWay;
+    payWayText = finalOrder.payWay+'\n';
   };
 
   if(finalOrder.shippingMethod === "delivery"){
-    shippingMethodText = 'Delivery ($'+finalOrder.deliveryCost+')'+ "\n▹Direccion: " + finalOrder.direction;
+    shippingMethodText = 'Delivery ($'+finalOrder.deliveryCost+')'+ "\n▹Direccion: " + finalOrder.direction +'.';
   }else{
-    shippingMethodText = 'lo busco ';
+    shippingMethodText = 'Lo busco ';
   };
 
   if(finalOrder.observations !== undefined && finalOrder.observations !== null){
     if(finalOrder.observations.length > 2){
-      observationsText = "\n▹Observaciones: " + finalOrder.observations;
+      observationsText = "\n▹Observaciones: " + finalOrder.observations + '.';
     }
   }
 
-  let message = "Hola! Quisiera pedir:\n" + productText + "\n▹Metodo de envio: " + shippingMethodText + observationsText +"\n▹Metodo de pago: " + payWayText + 'Total: $'+ finalOrder.total.toString();
+  let message = " Hola!  Quisiera pedir:\n" + productText + "\n▹Nombre: " + finalOrder.clientName + ".\n▹Metodo de envio: " + shippingMethodText + observationsText +"\n▹Metodo de pago: " + payWayText + '\nTotal: $'+ finalOrder.total.toString();
  
   return message;
 }
 
 function linkGenerator(phone,message){
-  return 'https://api.whatsapp.com/send?phone='+ phone + '&text=' + message;
+  return 'https://api.whatsapp.com/send?phone='+ phone + '&text=' + encodeURIComponent(message);
 }
 
-function submit(){
-  
+function validate(){
+  valid = true;
+
+  if($('input[name="name"]').val().length < 5){
+    $('input[name="name"]').addClass('required');
+    valid = false;
+  }else{
+    $('input[name="direction"]').removeClass('required');
+  }
+
+  if($('input[name="direction"]').val().length < 8 && sendOption === 'delivery'){
+    $('input[name="direction"]').addClass('required');
+    valid = false;
+  }else{
+    $('input[name="direction"]').removeClass('required');
+  };
+
+  return valid;
 }
 
 function sendOrder(){
-  const phone=6551564;
+
+  validForm = validate();
+
+  const phone = +5493425419964;
   let productList =  [{product:"hamburguesa triple + cheddar ",price:2500},{product:"hamburguesa triple + bacon",price:3000},{product:"lomito gratinado",price:2700}];
   let payWay;
   let payWith;
@@ -193,9 +214,12 @@ function sendOrder(){
   };
 
   let finalOrder = new FinalOrder(productList,clientName,direction,observations,payWay,payWith,deliveryCost,shippingMethod,total);
-
   let message = messageGenerator(finalOrder);
   let finalLink = linkGenerator(phone,message);
 
-  alert(finalLink);
+
+  console.log(validForm)
+  if(validForm){
+    window.open(finalLink, '_blank');
+  }
 }

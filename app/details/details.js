@@ -3,6 +3,8 @@ checked.checked = true;
 
 function uncheckOthers(checkbox) {
   var checkboxes = document.getElementsByName('option');
+  checkbox.checked = true;
+  
 
   for (var i = 0; i < checkboxes.length; i++) {
       if (checkboxes[i] !== checkbox) {

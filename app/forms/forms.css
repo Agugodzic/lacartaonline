@@ -1,13 +1,13 @@
 input[type=text],input[type=number]{
   position:relative;
   color:rgb(8, 8, 8);
-  height: 45px;
-  border-radius: 7px;
+  height: 44px;
+  border-radius: 6px;
   border: 0;
   outline: auto rgb(149, 149, 149);
   outline-width: 1px;
   padding-inline: 13px;
-  font-size: 18px;
+  font-size: 17px;
   transform: all 200ms;
   margin:10px auto;
   margin-bottom: 18px;
@@ -23,6 +23,10 @@ input[type=number]:focus{
   border: 1px solid rgb(17, 17, 17);
 }
 
+.required{
+  background-color: rgba(240, 182, 182, 0.531);
+}
+
 .switch{
   display:flex;
   flex-direction:row;
@@ -34,7 +38,7 @@ input[type=number]:focus{
   border:solid;
   border-color:rgb(70, 70, 70);
   border-radius:8px;
-  height:35px;
+  height:32px;
   border-width: 1.3px;
   max-height: 45px;
 }

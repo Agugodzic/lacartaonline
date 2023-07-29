@@ -5,6 +5,7 @@
   background-color: rgba(231, 231, 231, 0.658);
   backdrop-filter: blur(8px);
   padding:12px 4px;
+  padding-top:4px;
   margin:0;
   height: fit-content;
   box-sizing: border-box;
@@ -77,6 +78,7 @@
   margin: 10px 0px;
   padding: 3px 5px;
   border-radius: 6px;
+  font-size:16px;
   background-color: rgba(196, 196, 196, 0.179);
 }
 
@@ -91,6 +93,8 @@
 }
 .board-item-price h4{
   display: inline;
+  color:rgba(0, 0, 0, 0.87);
+  font-size: 15px;
 }
 
 .board-item-prices{

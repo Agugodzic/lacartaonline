@@ -81,7 +81,7 @@ h2{
 
 .cart-item-description-title{
   color:rgba(0, 0, 0, 0.918);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   margin:8px;
 }
@@ -89,7 +89,7 @@ h2{
 .cart-item-description-price{
   color:rgba(0, 0, 0, 0.72);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   margin:10px;
   border-radius: 8px;
 }

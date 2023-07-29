@@ -3,7 +3,7 @@
     include '.environments/dbConfig.php';
     /*
     $conection = new PDO("'pgsql:".
-      "host=".$DB_HOST."; ".
+      "host=".$DB_HOST."; ".s
       "dbname=".$DB_TABLE."' ".
       "port=".$DB_PORT."; ".
       $DB_USERNAME.", ".
