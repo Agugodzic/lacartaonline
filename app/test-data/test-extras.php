@@ -2,9 +2,9 @@
 include 'app/classes/extra.php';
 
 $extras = [
-  new Extra(1,1,'Cheddar','Bacon','null',200,300,100),
+  new Extra(1,1,'Cheddar','Bacon','panceta',200,300,100),
   new Extra(2,2,'Cheddar','Bacon',null,200,300,null),
-  new Extra(3,3,'Cheddar','Bacon','null',200,300,100),
+  new Extra(3,3,'Cheddar','Bacon','salsa noseq',200,300,100),
   new Extra(4,4,'Cheddar','Bacon',null,200,300,null),
   new Extra(5,5,'Cheddar','Bacon',null,200,300,null),
   new Extra(6,6,'Cheddar','Bacon',null,200,300,null),

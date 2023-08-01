@@ -21,7 +21,7 @@ class Variant {
         $this->price3 = $price3;
     }
 
-    // Getters and setters (optional, but recommended)
+    // Getters and setters
     public function getId() {
         return $this->id;
     }

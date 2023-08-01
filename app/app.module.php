@@ -1,8 +1,8 @@
 <?php 
   require_once('.router/router.php');
   require_once('.router/router.functions.php');
-
   use router\Router;
+
 
   $globalStyles = [
     'style.css',
@@ -40,11 +40,14 @@
     ]
   ];
 
-  
-  $globalMethods = [
+  $globalIncludes = [
     'app/.methods/db-sim.php',
     'app/classes/variant.php',
     '.tools/stools.module.php'
+  ];
+
+  $globalRequires = [
+    '.data/dbFunctions.php'
   ];
   
   $unrestrictedUrls = ['/board','/','/producto','/finalizar','/test','app/services/cart.service.php'];
@@ -65,10 +68,14 @@
       Router::dispatch(1);
   };
 
-  function includeMethods($methods){
-    foreach($methods as $methodsFile){
-      include $methodsFile;
-    }
+  function includeAndRequire($includes,$requires){
+    foreach($includes as $file){
+      include $file;
+    };
+
+    foreach($requires as $file){
+      include $file;
+    };
   }
 
   function injectedModule($resource){
@@ -114,7 +121,7 @@
           };
 
         }else if( route_uriForLevel(1) == '/login' || route_uriForLevel(1) == '/register'){
-          echo ' <img id="app-background" src=".files\image7.jpg">';
+          echo ' <img id="app-background" src=".files/image7.jpg">';
         }
         break;
     };
@@ -135,9 +142,10 @@
   
   function initialize(){
     global $unrestrictedUrls;
-    global $globalMethods;
+    global $globalIncludes;
+    global $globalRequires;
 
-    includeMethods($globalMethods);
+    includeAndRequire($globalIncludes,$globalRequires);
     unrestricted($unrestrictedUrls);
   };
 

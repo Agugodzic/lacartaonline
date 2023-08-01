@@ -1,16 +1,11 @@
 <?php
-  require_once('app/.data/dbFunctions.php');
 
   db_connect(); #dbFunctions.php
 
   function addUser($user){
-    $values = [ 
-      'username' => "'".($user -> username)."'",
-      'password' => "'".($user -> password)."'",
-      'email' => "'".($user -> email)."'",
-      'theme' => "'".($user -> theme)."'"
-    ];
-    return db_insert('users', $values); #dbFunctions.php
+    $values = $user -> toList();
+    
+    return db_insert('user', $values); #dbFunctions.php
   };
   
   function deleteUser($userid){
@@ -22,15 +17,15 @@
   };
 
   function getUserById($userid){
-    return db_getWhere('users', "userid = ". $userid); #dbFunctions.php
+    return db_getWhere('user', "userid = ". $userid); #dbFunctions.php
   };
 
   function getUser($username,$password){
-    return db_getWhere('users', "username = '". $username  ."' AND password = '". $password."'"); #dbFunctions.php
+    return db_getWhere('user', "username = '". $username  ."' AND password = '". $password."'"); #dbFunctions.php
   };
 
   function getUserByUsername($username){
-    return db_getWhere('users', "username = '". $username."'"); #dbFunctions.php
+    return db_getWhere('user', "username = '". $username."'"); #dbFunctions.php
   };
 
 ?>
