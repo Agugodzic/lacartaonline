@@ -15,6 +15,7 @@ function db_insert($tableName,$values){
       ...
     ]
   */
+  
   $columns_sql = "";
   $values_sql = "";
   $count = 1;

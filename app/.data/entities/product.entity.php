@@ -2,21 +2,19 @@
 
 class ProductEntity {
   public $id;
-  public $userid;
+  public $storeid;
   public $categoryid;
-  public $extrasid;
-  public $variantid;
   public $productname;
   public $description;
   public $unitprice;
   public $image;
 
-  public function __construct($id, $userid, $categoryid, $extrasid, $variantid, $productname, $description, $unitprice, $image) {
+  //$id,$storeId, $category, $name, $image, $description, $price
+
+  public function __construct($id, $storeid, $categoryid, $productname, $description, $unitprice, $image) {
       $this->id = $id;
-      $this->userid = $userid;
+      $this->storeid = $storeid;
       $this->categoryid = $categoryid;
-      $this->extrasid = $extrasid;
-      $this->variantid = $variantid;
       $this->productname = $productname;
       $this->description = $description;
       $this->unitprice = $unitprice;
@@ -26,10 +24,8 @@ class ProductEntity {
   public function toList() {
       return [
           'id' => $this->id,
-          'userid' => $this->userid,
+          'storeid' => $this->storeid,
           'categoryid' => $this->categoryid,
-          'extrasid' => $this->extrasid,
-          'variantid' => $this->variantid,
           'productname' => $this->productname,
           'description' => $this->description,
           'unitprice' => $this->unitprice,
@@ -37,27 +33,30 @@ class ProductEntity {
       ];
   }
 
+  public function toDataList() {
+    return [
+        'id' => $this->id,
+        'storeid' => $this->storeid,
+        'categoryid' => $this->categoryid,
+        'productname' => "'".$this->productname."'",
+        'description' => "'".$this->description."'",
+        'unitprice' => $this->unitprice,
+        'image' => "'".$this->image."'"
+    ];
+}
   
     // Getters
 
     public function getId() {
-        return $this->id;
+        return intval($this->id);
     }
 
-    public function getUserId() {
-        return $this->userid;
+    public function getStoreId() {
+        return $this->storeid;
     }
 
     public function getCategoryId() {
         return $this->categoryid;
-    }
-
-    public function getExtrasId() {
-        return $this->extrasid;
-    }
-
-    public function getVariantId() {
-        return $this->variantid;
     }
 
     public function getProductName() {
@@ -82,20 +81,12 @@ class ProductEntity {
         $this->id = $id;
     }
 
-    public function setUserId($userid) {
-        $this->userid = $userid;
+    public function setStoreId($storeid) {
+        $this->storeid = $storeid;
     }
 
     public function setCategoryId($categoryid) {
         $this->categoryid = $categoryid;
-    }
-
-    public function setExtrasId($extrasid) {
-        $this->extrasid = $extrasid;
-    }
-
-    public function setVariantId($variantid) {
-        $this->variantid = $variantid;
     }
 
     public function setProductName($productname) {

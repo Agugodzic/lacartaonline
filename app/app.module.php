@@ -1,6 +1,8 @@
 <?php 
   require_once('.router/router.php');
   require_once('.router/router.functions.php');
+  require_once('.data/dbFunctions.php');
+  
   use router\Router;
 
 
@@ -33,7 +35,7 @@
       ]
     ],
     ['/test',
-      'app/stest/notificacion.php',[
+      'app/services/test/add-user.php',[
         'app/finish/finish.css',
         'app/forms/forms.css',
       ]
@@ -47,10 +49,9 @@
   ];
 
   $globalRequires = [
-    '.data/dbFunctions.php'
   ];
   
-  $unrestrictedUrls = ['/board','/','/producto','/finalizar','/test','app/services/cart.service.php'];
+  $unrestrictedUrls = ['add.user','/board','/','/producto','/finalizar','/test','app/services/cart.service.php','app/services/test/api-test.php'];
 
   $initUri = '/'; // -> '/login'
 

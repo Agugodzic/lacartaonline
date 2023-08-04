@@ -1,8 +1,8 @@
 <?php
-  db_connect(); #dbFunctions.php
-
+  include 'app/.data/entities/category.entity.php';
+  
   function addCategory($category){
-    $values = $category->toList();
+    $values = $category->toDataList();
     
     return db_insert('category', $values); #dbFunctions.php
   };
@@ -12,18 +12,29 @@
   };
 
   function editCategory($categoryid, $valuesList){
-    return db_updateWhere('category', $valuesList, "id = ". $categoryid); #dbFunctions.php
+    return db_updateWhere('category', $valuesList, "id = ".$categoryid); #dbFunctions.php
   };
 
   function getCategoryById($categoryid){
-    return db_getWhere('category', "id = ". $categoryid); #dbFunctions.php
+    $data = db_getWhere('category', "id = ".$categoryid); #dbFunctions.php
+    $categoryList = [];
+
+    while($obj = db_fetch_adapter($data)){ #tools - adapters - db.adapter.php
+      $categoryList[] = new CategoryEntity($obj->id, $obj->storeid, $obj->categoryname, $obj->image);
+    };
+
+    return $categoryList;
   };
 
-  function getCategory($categoryname, $image){
-    return db_getWhere('category', "categoryname = '". $categoryname  ."' AND image = '". $image."'"); #dbFunctions.php
+  function getCategoriesByStoreId($storeid){
+    $data = db_getWhere('category', "storeid = ".$storeid); #dbFunctions.php
+    $categoryList = [];
+
+    while($obj = db_fetch_adapter($data)){ #tools - adapters - db.adapter.php
+      $categoryList[] = new CategoryEntity($obj->id, $obj->storeid, $obj->categoryname, $obj->image);
+    };
+
+    return $categoryList;
   };
 
-  function getCategoryByCategoryname($categoryname){
-    return db_getWhere('category', "categoryname = '". $categoryname."'"); #dbFunctions.php
-  };
 ?>

@@ -1,5 +1,4 @@
 <?php
-namespace userEntity;
 
 class UserEntity {
   public $id;
@@ -9,7 +8,7 @@ class UserEntity {
   public $phone;
 
   public function __construct($id, $username, $email, $password, $phone) {
-      $this->Id = $id;
+      $this->id = $id;
       $this->username = $username;
       $this->email = $email;
       $this->password = $password;
@@ -26,6 +25,14 @@ class UserEntity {
       ];
   }
 
+  public function toDataList() {
+    return [
+        "username" => "'".$this->username."'",
+        "email" => "'".$this->email."'",
+        "password" => "'".$this->password."'",
+        "phone" => "'".$this->phone."'"
+    ];
+}
   
   // Getters
 

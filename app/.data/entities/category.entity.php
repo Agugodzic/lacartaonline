@@ -2,13 +2,13 @@
 
 class CategoryEntity {
     public $id;
-    public $userid;
+    public $storeid;
     public $categoryname;
     public $image;
 
-    public function __construct($id, $userid, $categoryname, $image) {
+    public function __construct($id, $storeid, $categoryname, $image) {
         $this->id = $id;
-        $this->userid = $userid;
+        $this->storeid = $storeid;
         $this->categoryname = $categoryname;
         $this->image = $image;
     }
@@ -16,9 +16,18 @@ class CategoryEntity {
     public function toList() {
         return [
             'id' => $this->id,
-            'userid' => $this->userid,
+            'storeid' => $this->storeid,
             'categoryname' => $this->categoryname,
             'image' => $this->image
+        ];
+    }
+
+    public function toDataList() {
+        return [
+            'id' => $this->id,
+            'storeid' => $this->storeid,
+            'categoryname' => "'".$this->categoryname."'",
+            'image' => "'".$this->image."'"
         ];
     }
 
@@ -26,12 +35,12 @@ class CategoryEntity {
             return $this->id;
         }
     
-        public function getUserId() {
-            return $this->userid;
+        public function getStoreId() {
+            return $this->storeid;
         }
     
-        public function setUserId($userid) {
-            $this->userid = $userid;
+        public function setStoreId($storeid) {
+            $this->storeid = $storeid;
         }
 
         public function getCategoryName() {

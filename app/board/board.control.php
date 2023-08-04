@@ -1,18 +1,21 @@
 <?php
-include 'app/test-data/test-categories.php'; // aca se solicitaran los productos a la base de datos
-include_once 'app/test-data/test-products.php';  // aca se solicitaran las categorias a la base de datos
+include_once 'app/.data/data-services/category.service.php';  // aca se solicitaran las categorias a la base de datos
 include_once 'app/test-data/test-variants.php';
+include_once 'app/.data/data-services/product.service.php';
+
+$products = getProductsByStoreId(1);
+$categories = getCategoriesByStoreId(1);
 
 function listForCategory($categories, $products) {
   $productsForCategory = [];
 
-  foreach ($categories as $category) {
+  foreach($categories as $category){
     $categoryId = $category->getId();
-    $categoryName = $category->getCategory();
+    $categoryName = $category->getCategoryName();
     $productsForCategory[$categoryName] = []; 
 
     foreach ($products as $product) {
-      if ($product->getCategory() == $categoryId) {
+      if ($product->getCategoryId() == $categoryId) {
         $productsForCategory[$categoryName][] = $product;
       }
     }
@@ -22,6 +25,6 @@ function listForCategory($categories, $products) {
 };
 
 $productsForCat = [];
-$productsForCat = listForCategory($testCategories,$products);
+$productsForCat = listForCategory($categories,$products);
 
 ?>

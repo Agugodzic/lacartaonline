@@ -21,11 +21,12 @@
           </div>
           
           <div class="board-item-description">
-          <div class="board-description-title"><?=$product->getName()?></div>
-            <?=$product->getDescription()?>
+          <div class="board-description-title"><?=$product->getProductName()?></div>
+            <?=$product->getDescription()?> 
           </div>
 
           <div class="board-item-prices">
+
           <?php foreach (variantsByProductId($product->getId()) as $variant): ?>
             <div class="board-item-price"><h4><?= $variant['variant']?>:</h4> $<?= $variant['price']?> </div>
           <?php endforeach; ?>
@@ -33,9 +34,9 @@
 
           <form method="POST" action="/producto">
             <input class="hidden" type="text" name="id" value="<?=$product->getId()?>">
-            <input class="hidden" type="text" name="product" value="<?=$product->getName()?>">
+            <input class="hidden" type="text" name="product" value="<?=$product->getProductName()?>">
             <input class="hidden" type="text" name="description" value="<?=$product->getDescription()?>">
-            <input class="hidden" type="text" name="price" value="<?=$product->getPrice()?>">
+            <input class="hidden" type="text" name="price" value="<?=$product->getUnitPrice()?>">
             <input class="hidden" type="text" name="image" value="<?=$product->getImage()?>">
             <input class="hidden" type="text" name="category" value="<?=$categoryName?>">
             <button class="board-add-cart-button">Agregar +</button>

@@ -1,19 +1,17 @@
 <?php
 
-  db_connect(); #dbFunctions.php
-
   function addUser($user){
-    $values = $user -> toList();
+    $values = $user -> toDataList();
     
-    return db_insert('user', $values); #dbFunctions.php
+    return db_insert('userdata', $values); #dbFunctions.php
   };
   
   function deleteUser($userid){
     return db_deleteWhere('users', "userid = ".$userid); #dbFunctions.php
   };
 
-  function editUser($userid,$valuesList){
-    return db_updateWhere('users', $valuesList, "userid = ". $userid); #dbFunctions.php
+  function editUser($userid,$valueList){
+    return db_updateWhere('users', $valueList, "userid = ". $userid); #dbFunctions.php
   };
 
   function getUserById($userid){
