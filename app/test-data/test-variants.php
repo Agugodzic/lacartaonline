@@ -1,7 +1,7 @@
 <?php
 
 $variants = [
-  new Variant(1,1,'Simple','Doble',null,2500,3000,null),
+  new Variant(1,1,'Simple','Doble',null,2400,3000,null),
   new Variant(2,2,'Simple',null,null,2500,null,null),
   new Variant(3,3,'Simple','Doble','triple',2500,3000,3300),
   new Variant(4,4,'Simple','Doble',null,2500,3000,null),

@@ -2,20 +2,13 @@
 
 class ExtrasEntity {
     private $id;
-    private $productid;
+    private $categoryid;
     private $extra;
     private $price;
 
-    public function __construct($id, $productid, $extra, $price) {
+    public function __construct($id, $categoryid, $extra, $price) {
         $this->id = $id;
-        $this->productid = $productid;
-        $this->extra = $extra;
-        $this->price = $price;
-    }
-
-    public function __construct($productid, $extra, $price) {
-        $this->id = null;
-        $this->productid = $productid;
+        $this->categoryid = $categoryid;
         $this->extra = $extra;
         $this->price = $price;
     }
@@ -25,8 +18,8 @@ class ExtrasEntity {
         return $this->id;
     }
 
-    public function getProductId() {
-        return $this->productid;
+    public function getCategoryId() {
+        return $this->categoryid;
     }
 
     public function getExtra() {
@@ -42,8 +35,8 @@ class ExtrasEntity {
         $this->id = $id;
     }
 
-    public function setProductId($productid) {
-        $this->productid = $productid;
+    public function setCategotyId($categoryid) {
+        $this->categoryid = $categoryid;
     }
 
     public function setExtra($extra) {
@@ -57,11 +50,37 @@ class ExtrasEntity {
     // Método toList() que devuelve un array con las propiedades del objeto
     public function toList() {
         return [
-            'id' => $this->id,
-            'productid' => $this->productid,
-            'extra' => $this->extra,
-            'price' => $this->price,
+            "id" => $this->id,
+            "categoryid" => $this->categoryid,
+            "extra" => $this->extra,
+            "price" => $this->price,
         ];
+    }
+/*
+    public function toDataList() {
+        $propertyList = $this->toList();
+        $dataList = [];
+    
+        foreach ($propertyList as $property => $value){
+            if($value !== null  $value !== "id"){
+                if(is_string($value)){
+                    $dataList[$property] = "'".$value."'";
+                }else{
+                    $dataList[$property] = $value;
+                };
+            };
+        };
+        
+        return $dataList;
+    }
+
+    */
+    public function toDataList() {
+        return [
+        "categoryid" => $this->categoryid,
+        "extra" => "'".$this->extra."'",
+        "price" => $this->price,
+    ];
     }
 }
 ?>

@@ -32,6 +32,7 @@ function db_insert($tableName,$values){
   };
 
   $sql = "INSERT INTO ".$tableName." (".$columns_sql.") VALUES (".$values_sql.")";
+  //echo $sql;
   return mysqli_query(DatabaseConnection::getInstance()->getConnection(),$sql);
 };
 

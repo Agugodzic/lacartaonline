@@ -18,7 +18,7 @@
 </head>
 <body>
 <div <?=theme_class('global-background')?>>
-
+<?php include 'app/loadder/loadder.view.php'?>
 </div>
   <?php require_once("app/app.php")?>
 </body>

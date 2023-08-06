@@ -1,5 +1,5 @@
 <?php
-
+/*
 function variantsByProductId($id) {
   include 'app/test-data/test-variants.php';
   $productVariants = [];
@@ -19,7 +19,7 @@ function variantsByProductId($id) {
       return $productVariants;
     }
   };
-};
+};*/
 
 function extrasByProductId($id) {
   include 'app/test-data/test-extras.php';

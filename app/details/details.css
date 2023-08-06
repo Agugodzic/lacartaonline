@@ -47,6 +47,7 @@
 }
 
 #details-description{
+  margin: 0 2px;
   margin-bottom:10px;
   font-size: 14px;
 }
@@ -121,4 +122,10 @@
   width: 100%;
   bottom:0px;
   position:absolute;
+}
+
+#details-extras-message{
+  padding:10px 20px;
+  font-size: 15px;
+  color:rgba(0, 0, 0, 0.889);
 }

@@ -1,6 +1,7 @@
 <?php
 class VariantsEntity {
   private $id;
+  private $storeid;
   private $productid;
   private $variant1;
   private $price1;
@@ -9,8 +10,9 @@ class VariantsEntity {
   private $variant3;
   private $price3;
 
-  public function __construct($id, $productid, $variant1, $variant2, $variant3, $price1, $price2, $price3) {
+  public function __construct($id, $storeid, $productid, $variant1, $variant2, $variant3, $price1, $price2, $price3) {
       $this->id = $id;
+      $this->storeid = $storeid;
       $this->productid = $productid;
       $this->variant1 = $variant1;
       $this->price1 = $price1;
@@ -24,6 +26,10 @@ class VariantsEntity {
   public function getId() {
       return $this->id;
   }
+
+  public function getStoreId() {
+    return $this->storeid;
+  }   
 
   public function getProductId() {
       return $this->productid;
@@ -90,6 +96,7 @@ class VariantsEntity {
   public function toList() {
       return [
           'id' => $this->id,
+          'storeid' => $this->productid,
           'productid' => $this->productid,
           'variant1' => $this->variant1,
           'price1' => $this->price1,
@@ -101,16 +108,20 @@ class VariantsEntity {
   }
 
   public function toDataList() {
-    return [
-        'id' => $this->id,
-        'productid' => $this->productid,
-        'variant1' => "'".$this->variant1."'",
-        'price1' => $this->price1,
-        'variant2' => "'".$this->variant2."'",
-        'price2' => $this->price2,
-        'variant3' => "'".$this->variant3."'",
-        'price3' => $this->price3,
-    ];
+    $propertyList = $this->toList();
+    $dataList = [];
+
+    foreach ($propertyList as $property => $value){
+        if($value !== null){
+            if(is_string($value)){
+                $dataList[$property] = "'".$value."'";
+            }else{
+                $dataList[$property] = $value;
+            };
+        };
+    };
+     
+    return $dataList;
 }
 }
 ?>

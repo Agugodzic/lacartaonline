@@ -1,7 +1,8 @@
 <?php
+  include 'app/.data/entities/payMethod.entity.php';
 
   function addPayMethod($paymethod){
-    $values = $paymethod->toList();
+    $values = $paymethod->toDataList();
     return db_insert('paymethods', $values); #dbFunctions.php
   };
   
@@ -13,8 +14,15 @@
     return db_updateWhere('paymethods', $valueList, "id = ". $categoryid); #dbFunctions.php
   };
 
-  function getPayMethodsByProductId($productid){
-    return db_getWhere('paymethods', "id = ". $productid); #dbFunctions.php
+  function getPayMethodsByStoreId($storeid){
+    $data = db_getWhere('paymethods', "storeid = ". $productid); #dbFunctions.php
+    $payMethods = [];
+
+    while($obj = db_fetch_adapter($data)){ #tools - adapters - db.adapter.php
+      $payMethods[] = new PayMethodEntity($obj->id,$obj->storeid, $obj->name, $obj->delivery);
+    };
+
+    return $extrasList;
   };
 
 ?>

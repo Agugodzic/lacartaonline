@@ -13,22 +13,6 @@ class PayMethodEntity {
       $this->delivery = $delivery;
   }
 
-  public function __construct($storeid, $name, $delivery) {
-    $this->id = null;
-    $this->storeid = $storeid;
-    $this->name = $name;
-    $this->delivery = $delivery;
-}
-
-  public function toList() {
-        return [
-            'id' => $this->id,
-            'storeid' => $this->storeid,
-            'name' => $this->name,
-            'delivery' => $this->delivery
-            ];
-        }
-
     // Getters
 
     public function getId() {
@@ -67,4 +51,31 @@ class PayMethodEntity {
     }  
   }
 
+  
+  public function toList() {
+    return [
+        'id' => $this->id,
+        'storeid' => $this->storeid,
+        'name' => $this->name,
+        'delivery' => $this->delivery
+        ];
+    }
+
+    
+    public function toDataList() {
+        $propertyList = $this->toList();
+        $dataList = [];
+    
+        foreach ($propertyList as $property => $value){
+            if($value !== null){
+                if(is_string($value)){
+                    $dataList[$property] = "'".$value."'";
+                }else{
+                    $dataList[$property] = $value;
+                };
+            };
+        };
+         
+        return $dataList;
+    }
 ?>

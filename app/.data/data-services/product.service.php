@@ -24,6 +24,17 @@
     return $productList;
   };
 
+  function getProductsIdByCategory($categoryid){
+    $data = db_getColumnsWhere('product', ['id'] , "categoryid = " . $categoryId); #dbFunctions.php
+    $idList = [];
+
+    while($obj = db_fetch_adapter($data)){ #tools - adapters - db.adapter.php
+      $idList[] = $obj->id;
+    };
+
+    return $idList;
+  };
+
   function getProductById($id){
     return db_getWhere('product', "id = " . $id); #dbFunctions.php
   };

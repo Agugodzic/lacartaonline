@@ -14,26 +14,26 @@
     return db_updateWhere('variants', $valueList , "id = ". $variantid); #dbFunctions.php
   };
 
-  function getVariantById($variantid){
-    $data = db_getWhere('variants', "id = ". $variantid); #dbFunctions.php
+  function getVariantsByStoreId($storeid){
+    $data = db_getWhere('variants', "storeid = ". $storeid); #dbFunctions.php
     $variantList = [];
 
     while($obj = db_fetch_adapter($data)){ #tools - adapters - db.adapter.php
-      $variantList[] = new VariantEntity($obj->id, $obj->productid, $obj->variant1, $obj->price1, $obj->variant2, $obj->price2, $obj->variant3, $obj->price3);
+      $variantList[] = new VariantsEntity($obj->id, $obj->storeid, $obj->productid, $obj->variant1, $obj->variant2, $obj->variant3,$obj->price1, $obj->price2, $obj->price3);
     };
 
     return $variantList;
   };
 
-  function getVariantsByProductId($productid){
+  function getVariantByProductId($productid){
     $data = db_getWhere('variants', "productid = ". $productid); #dbFunctions.php
     $variantList = [];
 
     while($obj = db_fetch_adapter($data)){ #tools - adapters - db.adapter.php
-      $variantList[] = new VariantEntity($obj->id, $obj->productid, $obj->variant1, $obj->price1, $obj->variant2, $obj->price2, $obj->variant3, $obj->price3);
+      $variantList[] = new VariantsEntity($obj->id, $obj->storeid, $obj->productid, $obj->variant1, $obj->variant2, $obj->variant3,$obj->price1, $obj->price2, $obj->price3);
     };
 
-    return $variantList;
+    return $variantList[0];
   };
 
 ?>
