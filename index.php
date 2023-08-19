@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="<?= route_uriForLevel(1) ?>">
   <link rel="icon" type="image/png" href=".files/test/logo-test.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,12 +15,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
   <script src=".libs\code.jquery.com_jquery-3.7.0.min.js"></script>
   <?php injectedModule('styles')?>
-  <title>Personal Notes</title>
+  <title><?php
+  if(isset($_SESSION['storeName'])){
+    echo $_SESSION['storeName'];
+  }else{
+    echo 'Carta Online';
+  }
+  ?></title>
 </head>
 <body>
+
+<?php /* include 'app/loadder/loader.view.php' */?>
+
 <div <?=theme_class('global-background')?>>
-<?php include 'app/loadder/loadder.view.php'?>
 </div>
   <?php require_once("app/app.php")?>
+
 </body>
 </html>

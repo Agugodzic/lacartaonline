@@ -47,15 +47,19 @@
       </div>
 
       <div id="finish-checks-container">
-      <?php foreach(payMethodByClientId(1) as $method): ?>
+      <?php if(count($paymethods) > 0): ?>
+      <?php foreach($paymethods as $method): ?>
 
-      <div class="finish-check-item <?= notDeliveryClass($method['forDelivery']) ?>">
-          <h4 class="finish-check-title"><?= $method['method'] ?></h4>
-          <input name="method" value="<?= $method['method'] ?>" class="finish-check-checkbock" onclick="uncheckOthers(this)" type="checkbox">
+      <div class="finish-check-item <?= notDeliveryClass($method->aviableForDelivery()) ?>">
+          <h4 class="finish-check-title"><?= $method->getName() ?></h4>
+          <input name="method" value="<?= $method->getName() ?>" class="finish-check-checkbock" onclick="uncheckOthers(this)" type="checkbox">
       </div>
-
       <?php endforeach; ?>
-
+      <p id="finish-paymethods-message">Hay <?= $morePayways ?> medios de pago adicionales para la opcion de retiro por local.</p>
+      <?php endif; ?>
+      <?php if(count($paymethods) == 0): ?>
+        <p>Por el momento no hay otros medios de pago disponibles.</p>
+      <?php endif; ?>
       </div>
 
       <div id="finish-send-button" >
@@ -68,4 +72,9 @@
     </form>
   </div>
 </div>
+
+<div id="background-container">
+    <img id="app-test-background" src=".files/test/test-banner.jpg">
+</div>
+
 <script src="app/finish/finish.js"></script>

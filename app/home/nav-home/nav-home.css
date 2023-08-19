@@ -1,0 +1,56 @@
+.navbar {
+  background-color: #000000b9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+ 
+  min-height: 65px;
+  box-sizing: border-box;
+  z-index: 5000;
+}
+
+.in-view{
+  color:rgb(246, 135, 24);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 400;
+}
+
+.access-button-container {
+  width: fit-content;
+  background-color: antiquewhite;
+}
+
+.access-button {
+  background-color: rgb(246, 135, 24);
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  padding: 3px 10px;
+  color:white;
+}
+
+.access-button:hover {
+  background-color: #ddd;
+}

@@ -1,0 +1,210 @@
+#start-container{
+  position: relative;
+  background-image: url('https://restaurantmanagementsoftwareblog.files.wordpress.com/2016/07/restaurant-mobile-app.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  height: auto;
+  min-height: fit-content;
+  width: 100%;
+  z-index: 1;
+}
+
+.start-overlay {
+  position:relative;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.781);
+  backdrop-filter: blur(8px);
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+#start-info-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index:100;
+  margin-top:50px;
+  flex-grow: 2;
+}
+
+
+#start-info{
+  z-index:100;
+}
+
+#start-info p, div{
+  color:white;
+  text-align: start;
+}
+
+#start-info-title{
+  font-size: 40px;
+}
+
+#start-info-subtitle{
+  font-size: 25px;
+  margin-bottom: 25px;
+  color:rgb(220, 152, 63);
+}
+
+.start-info-text-item{
+  margin: 25px 0;
+  font-size: 20px;
+}
+
+#start-info-button{
+  height: 40px;
+  width: 100%;
+  margin-top: 35px;
+  border:none;
+  border-radius: 8px;
+  background-color: rgb(254, 128, 25);
+}
+
+
+#start-acquire-container{
+  position:relative;
+  display: flex;
+  min-width: 50%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  z-index:100;
+  margin-top:50px;
+  flex-grow: 2;
+}
+
+#start-acquire{
+  box-sizing: border-box;
+  position:relative;
+  height: 85%;
+  width: 390px;
+  border-radius: 8px;
+  margin:0 auto;
+  background-color: rgb(255, 255, 255);
+  box-shadow: -5px 5px 5px 5px rgba(0, 0, 0, 0.267);
+  z-index:100;
+  padding: 10px;
+  padding-bottom: 100px;
+}
+
+#start-acquire-description{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  text-align: left;
+}
+
+#start-acquire-description-title{
+  font-size: 24px;
+  color: black !important;
+}
+
+#start-acquire-description-items{
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  align-items: center;
+  width: fit-content;
+  padding: 0 15px;
+}
+
+.start-acquire-description-item{
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  margin:10px 0;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+}
+
+.start-acquire-description-point{
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color:rgba(0, 0, 0, 0.835);
+  margin-right: 10px;
+}
+
+.start-acquire-description-text{
+  font-size: 18px;
+  width: 100%;
+  text-align: left;
+}
+
+.start-acquire-description-price-number{
+  font-size: 25px;
+  color:rgb(50, 50, 50);
+  font-weight: 600;
+}
+
+.start-acquire-description-price{
+  font-size: 18px;
+  height: 25px;
+  color:rgb(50, 50, 50);
+  font-weight: 500;
+}
+
+#start-acquire-button{
+  height: 40px;
+  width: 370px;
+  margin: 0 auto;
+  margin-top: 35px;
+  border:none;
+  border-radius: 8px;
+  background-color: rgb(254, 128, 25);
+  position:absolute;
+  bottom:15px;
+}
+
+@media  screen and (max-width: 850px){
+
+  .start-overlay {
+    background-color: rgba(0, 0, 0, 0.878);
+  }
+  
+  #start-info-container{
+    margin-top:130px;
+    padding:10px;
+  }
+
+  #start-acquire-container{
+    flex-grow: 2;
+  }
+
+  #start-info-subtitle{
+    margin-bottom: 55px;
+  }
+
+  #start-acquire{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    min-height: 80%;
+    height: fit-content;
+    width: 90%;
+  }
+
+  .start-acquire-description-price{
+    margin-top:34px;
+  }
+
+  .start-info-text-item{
+    margin: 30px 0;
+  }
+
+  #start-acquire-button{
+    width: 93%;
+  }
+  
+  #start-acquire-description-items{
+    padding: 0 7px;
+  }
+}

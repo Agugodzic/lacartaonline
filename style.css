@@ -2,12 +2,20 @@ html{
   background-color: rgb(255, 255, 255);
   margin:0;
   padding:0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 body{
   margin:0;
   padding:0;
   color:black;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 div{
@@ -59,7 +67,10 @@ button{
   position:absolute;
   height:100vh;
   width:100vw;
+  max-width: 100%;
   background-color: rgb(210, 164, 164);
+  box-sizing: border-box;
+  z-index:1;
 }
   .global-background-dark{
     background-color: rgb(8, 8, 8);

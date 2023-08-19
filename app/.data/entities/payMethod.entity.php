@@ -46,10 +46,9 @@ class PayMethodEntity {
         $this->cash = $name;
     }
 
-    public function aviableForDelivery($boolean) {
+    public function setAviableForDelivery($boolean) {
         $this->delivery = $boolean;
     }  
-  }
 
   
   public function toList() {
@@ -74,8 +73,9 @@ class PayMethodEntity {
                     $dataList[$property] = $value;
                 };
             };
+            return $dataList;
         };
-         
-        return $dataList;
     }
+
+}
 ?>

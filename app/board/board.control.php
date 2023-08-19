@@ -1,12 +1,13 @@
 <?php
-include_once 'app/.data/data-services/category.service.php';  // aca se solicitaran las categorias a la base de datos
+include_once 'app/.data/data-services/category.service.php'; 
 include_once 'app/.data/data-services/variants.service.php';
 include_once 'app/.data/data-services/product.service.php';
 
-$products = getProductsByStoreId(1);
-$categories = getCategoriesByStoreId(1);
-$variants = getVariantsByStoreId(1);
-
+$storeId = $_SESSION['storeId'];
+$storeRoute = $_SESSION['storeRoute'];
+$products = getProductsByStoreId($storeId);
+$categories = getCategoriesByStoreId($storeId);
+$variants = getVariantsByStoreId($storeId);
 
 function variantsByProductId($variants,$id) {
   $productVariants = [];
@@ -38,7 +39,7 @@ function listForCategory($categories, $products) {
     $productsForCategory[$categoryName] = []; 
 
     foreach ($products as $product) {
-      if ($product->getCategoryId() == $categoryId) {
+      if ($product->getCategoryId() === $categoryId) {
         $productsForCategory[$categoryName][] = $product;
       }
     }

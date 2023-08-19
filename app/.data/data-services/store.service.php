@@ -1,4 +1,6 @@
 <?php
+include 'app/.data/entities/store.entity.php';
+
 
 function addStore($store){
   $values = $store->toDataList();
@@ -14,12 +16,37 @@ function editStore($storeid, $valueList){
   return db_updateWhere('stores', $valueList, "id = ". $storeid); #dbFunctions.php
 };
 
-function getStoreById($storeid){
-  return db_getWhere('store', "id = ". $storeid); #dbFunctions.php
+function getStoreById($id){ 
+  $data = db_getWhere('store', "id = ".$id); #dbFunctions.php
+  $storeList = [];
+
+  while($obj = db_fetch_adapter($data)){ #tools - adapters - db.adapter.php
+    $storeList[] = new StoreEntity($obj->id, $obj->userid, $obj->storename, $obj->logo, $obj->banner,$obj->email, $obj->phone, $obj->openhours, $obj->route);
+  };
+
+  return $storeList;
 };
 
-function getStoreByUserId($userid){
-  return db_getWhere('store', "userid = ".$userid); #dbFunctions.php
+function getStoreByRoute($route){ 
+  $data = db_getWhere('store', "route =". "'".$route."'"); #dbFunctions.php
+  $storeList = [];
+
+  while($obj = db_fetch_adapter($data)){ #tools - adapters - db.adapter.php
+    $storeList[] = new StoreEntity($obj->id, $obj->userid, $obj->storename, $obj->logo, $obj->banner,$obj->email, $obj->phone, $obj->openhours, $obj->route);
+  };
+
+  return $storeList;
+};
+
+function getStoreByUserId($userid){ 
+  $data = db_getWhere('store', "userid = ".$userid); #dbFunctions.php
+  $storeList = [];
+
+  while($obj = db_fetch_adapter($data)){ #tools - adapters - db.adapter.php
+    $storeList[] = new StoreEntity($obj->id, $obj->userid, $obj->storename, $obj->logo, $obj->banner,$obj->email, $obj->phone, $obj->openhours, $obj->route);
+  };
+
+  return $storeList;
 };
 
 ?>

@@ -16,6 +16,7 @@
   height: 260px;
   overflow: hidden;
   box-shadow: 3px 4px 3px black;
+  z-index: 100;
 }
 
 #banner-logo-container{
@@ -26,7 +27,7 @@
 }
 
 #banner-logo{
-  height:60%;
+  height:50%;
   opacity:80%;
   position: absolute;
   top: 50%;
@@ -77,5 +78,20 @@
   }
   100%{
     opacity: 100%;;
+  }
+}
+
+@media screen and ( min-width: 700px ) {
+  #banner{
+    height: 230px;
+  }
+
+  #banner-logo-container{
+    background-color:rgba(0, 0, 0, 0.603);
+  }
+
+  #banner-info-open{
+    font-size: 14px;
+    margin:10px;
   }
 }

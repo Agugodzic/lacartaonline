@@ -1,7 +1,7 @@
 <?php 
   include_once 'app/board/board.control.php';
-  include_once 'app/nav/nav.view.php';
   include_once 'app/banner/banner.view.php';
+  include_once 'app/nav/nav.view.php';
 ?>
 
 <div id='board-container'>
@@ -16,26 +16,30 @@
         <?php foreach ($productsInCategory as $product): ?>
         <div class="board-item">
 
-          <div>
+   
+          <div class="board-item-image-container">
             <img class="board-item-image" src=<?=$product->getImage()?>>
           </div>
-          
+
+          <div class="board-item-description-and-price">
+
           <div class="board-item-description">
-          <div class="board-description-title"><?=$product->getProductName()?></div>
-            <?= $product->getDescription() ?> 
+            <div class="board-description-title"><?=$product->getProductName()?></div>
+              <?= $product->getDescription() ?> 
           </div>
+                
 
           <div class="board-item-prices">
-          <?php foreach (variantsByProductId($variants,$product->getId()) as $variant): ?>
-            <div class="board-item-price"><h4><?= $variant['variant']?>:</h4> $<?= $variant['price']?> </div>
-          <?php endforeach; ?>
+            <?php foreach (variantsByProductId($variants,$product->getId()) as $variant): ?>
+              <div class="board-item-price"><h4><?= $variant['variant']?>:</h4> $<?= $variant['price']?> </div>
+            <?php endforeach; ?>
 
-          <?php if(count(variantsByProductId($variants,$product->getId())) == 0): ?>
-            <div class="board-item-price"><h4></h4> $<?= $product->getUnitPrice() ?></div>
-          <?php endif; ?>
+            <?php if(count(variantsByProductId($variants,$product->getId())) == 0): ?>
+              <div class="board-item-price"><h4></h4> $<?= $product->getUnitPrice() ?></div>
+            <?php endif; ?>
           </div>
 
-          <form method="POST" action="/producto">
+          <form method="POST" action="/burguerking/producto">
             <input class="hidden" type="number" name="id" value="<?=$product->getId()?>">
             <input class="hidden" type="text" name="product" value="<?=$product->getProductName()?>">
             <input class="hidden" type="text" name="description" value="<?=$product->getDescription()?>">
@@ -46,6 +50,7 @@
             <button class="board-add-cart-button">Agregar +</button>
           </form>
 
+          </div>
         </div> <!--item end -->
         <?php endforeach; ?>
 
@@ -61,7 +66,7 @@
 
 </div> <!--board end -->
 
-<a id="board-cart-button" href="/#cart-container">
+<a id="board-cart-button" href="#cart-container">
   <div id="board-cart-button-info">
     <div id="board-cart-button-number">0</div>
     <div id="board-cart-button-price"></div>
@@ -70,5 +75,8 @@
   <img id="board-cart-button-img" src=".files/utils/cart-black.png">
 </a>
 
+<div id="background-container">
+    <img id="app-test-background" src=".files/test/test-banner.jpg">
+  </div>
 
 <script src="app/board/board.js"></script>

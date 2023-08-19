@@ -13,7 +13,6 @@ $extras = null;
 
 if(isset( $_POST['id'] )){
   $id = intval($_POST['id']);
-  $extras = extrasByProductId($id);
 }
 
 if(isset( $_POST['product'] )){

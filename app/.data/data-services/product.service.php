@@ -1,4 +1,5 @@
 <?php
+
   include 'app/.data/entities/product.entity.php';
 
   function addProduct($product){

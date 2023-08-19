@@ -15,14 +15,14 @@
   };
 
   function getPayMethodsByStoreId($storeid){
-    $data = db_getWhere('paymethods', "storeid = ". $productid); #dbFunctions.php
+    $data = db_getWhere('paymethods', "storeid = ". $storeid); #dbFunctions.php
     $payMethods = [];
 
     while($obj = db_fetch_adapter($data)){ #tools - adapters - db.adapter.php
       $payMethods[] = new PayMethodEntity($obj->id,$obj->storeid, $obj->name, $obj->delivery);
     };
 
-    return $extrasList;
+    return $payMethods;
   };
 
 ?>

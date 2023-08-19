@@ -1,0 +1,10 @@
+#about-container{
+  background-image: url('https://d24a06rmrvoemw.cloudfront.net/wp-content/uploads/2020/12/Thumbnail_FoodTech-2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Mantener la imagen fija al desplazarse */
+  background-position: center;
+  height: 100vh; /* Tamaño de la ventana visible */
+  width: 100%;
+  margin:0;
+}

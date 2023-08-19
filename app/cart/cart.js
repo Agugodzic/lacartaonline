@@ -1,3 +1,5 @@
+const cartContainer = document.getElementById("cart-container");
+
 function deleteCartItem(index){
   $('#cart-item-'+index).remove();
 
@@ -7,8 +9,8 @@ function deleteCartItem(index){
     dataType: "json",
     success: function(response) {
         $("#board-cart-button-number").text(response.quantity.toString());
-        $("#board-cart-button-price").text('$' + response.total.toString());
-        $("#cart-total").text('$' + response.total.toString());
+        $("#board-cart-button-price").text(' $' + response.total.toString());
+        $("#cart-total").text('Total: $' + response.total.toString());
         if(response.total  > 0) {
           $('#board-cart-button-info').css('display', 'flex');
           $('#cart-message').hide();
@@ -32,7 +34,29 @@ function cartSend(){
   },500);
 
   if(total > 0){
-    location.href = '/finalizar';
+    location.href = '/burguerking/finalizar';
   }
-
 }
+
+function checkAndSetFixed() {
+  if (window.innerWidth > 700) {
+    if (window.scrollY > bannerHeight) {
+      //cartContainer.style.position = "fixed";
+    } else {
+      cartContainer.style.position = "relative";
+      cartContainer.style.top = "auto";
+    }
+  }else{
+    cartContainer.style.position = "relative";
+    //navContainer.style.top = "0";
+  }
+}
+
+
+//------------ INIT -----------//
+
+
+window.addEventListener("scroll", checkAndSetFixed);
+window.addEventListener("resize", checkAndSetFixed);
+
+checkAndSetFixed();

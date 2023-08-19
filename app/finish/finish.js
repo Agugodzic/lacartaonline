@@ -42,6 +42,7 @@ function switchDelivery(option){
   const takeAwaySwitchElement = document.getElementById('finish-takeAway-switch');
   const directionInput = document.getElementById('finish-direction-input');
   const obsInput = document.getElementById('finish-obs-input'); 
+  const payMethodsMessage = document.getElementById('finish-paymethods-message'); 
   const forDelivery = document.querySelectorAll(".not-delivery");
 
   if(option == 'takeAway'){
@@ -52,6 +53,8 @@ function switchDelivery(option){
 
     deliverySwitchElement.style.color = 'black';
     takeAwaySwitchElement.style.color = 'rgb(255, 255, 255)';
+
+    payMethodsMessage.style.display='none';
 
     directionInput.disabled = true;
     obsInput.disabled = true;
@@ -64,6 +67,8 @@ function switchDelivery(option){
       elemento.style.visibility = "visible";
       elemento.style.position = 'relative';
     });
+
+
 
   }else if(option == 'delivery'){
     sendOption ="delivery";

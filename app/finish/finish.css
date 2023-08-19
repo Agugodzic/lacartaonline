@@ -138,3 +138,42 @@
   visibility:hidden;
   position:absolute;
 }
+
+#finish-paymethods-message{
+  margin:0 15px;
+  color:rgba(0, 0, 0, 0.65);
+  font-style:italic;
+  font-size: 14px;
+}
+
+
+@media screen and (min-width: 700px) {
+
+  #finish-container{
+    background-color:rgba(255, 255, 255, 0.781);
+  }
+  
+  #finish-content{
+    box-shadow: 2px 2px 8px 10px rgba(0, 0, 0, 0.102);
+  }
+
+  .finish-input-title{
+    font-size:17px;
+  }
+
+  #finish-back-img{
+    height:28px;
+  }
+
+  #finish-back-button{
+    padding:5px;
+  }
+
+  #finish-price-title{
+    font-size: 17px;
+  }
+  
+  #finish-price-number{
+    font-size: 16px;
+  }
+}
