@@ -6,9 +6,9 @@
     </div>
 
     <div id="why-description-container">
-      <p id="why-description">Nuestro sitio es totalmente adaptable para cualquier tipo de pantalla, ya sea celular, computadora o tablet.</p>
-      <p id="why-description">Tendras la opcion de modificar todos los precios a la vez, ahorrando mucho trabajo frente a la inflación.</p>
-      <p id="why-description">Obtendras un diseño unico y agradable, pensado para mejorar y agilizar la experiencia del usuario.</p>
+    <p id="why-description"><span style="margin-right:15px;opacity:80%;font-size:17px;">● </span><span style="text-align:left">Nuestro sitio es totalmente adaptable para cualquier tipo de pantalla, ya sea celular, computadora o tablet.</span></p>
+    <p id="why-description"><span style="margin-right:15px;opacity:80%;font-size:17px;">● </span><span style="text-align:left">Tendras la opcion de modificar todos los precios a la vez, ahorrando mucho trabajo frente a la inflación.</span></p>
+    <p id="why-description"><span style="margin-right:15px;opacity:80%;font-size:17px;">● </span><span style="text-align:left">Obtendras un diseño unico y agradable, pensado para mejorar y agilizar la experiencia del usuario.</span></p>
     </div> 
   </div>
 

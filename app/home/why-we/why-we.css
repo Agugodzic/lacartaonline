@@ -22,10 +22,12 @@
 }
 
 #why-title{
-  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.4);
-  margin:0;
-  font-size: 74px;
+  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0);
+  margin:0 15px;
+  margin-bottom: 20px;
+  font-size: 60px;
   color: black !important;
+  font-weight: 400px;
 }
 
 #why-text-container{
@@ -39,14 +41,18 @@
 
 #why-description-container{
   margin:0;
+  padding: 0 20px;
 }
 
 #why-description{
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0);
+  font-size: 16px;
   width: 90%;
   color:black !important;
-  margin: 22px auto;
+  margin: 36px auto;
   text-align: left;
   font-weight: 500;
 }
@@ -63,10 +69,8 @@
   height: 80%;
   margin: 0 auto;
   border-radius: 8px;
-  box-shadow: -5px 5px 5px 5px rgba(0, 0, 0, 0.186);
+  box-shadow: -3px 3px 4px 2px rgba(0, 0, 0, 0.118);
 }
-
-
 
 @media  screen and (max-width: 850px){
   #why-title{
