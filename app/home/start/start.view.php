@@ -40,7 +40,12 @@
           </div>
         </div>
       </div>
-      <p class="start-acquire-description-price"><span class="start-acquire-description-price-number">$6000</span> /mes</p>
+
+      <div class="start-acquire-description-price">
+        <p><span id="start-acquire-description-price-old">$ 5300</span><span id="start-acquire-description-price-offer">Ahorrá 25%</span></p>
+        <p style="margin-top:8px"><span class="start-acquire-description-price-number">$4000</span> /mes</p>
+      </div>
+
       <button id='start-acquire-button'>REGISTRA TU NEGOCIO</button>
     </div>
   </div>
